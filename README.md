@@ -1,4 +1,4 @@
-# calendar-month
+# CalendarMonth
 
 ## A class for generating calendar month data, especially for display
 
