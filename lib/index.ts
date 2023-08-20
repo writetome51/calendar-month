@@ -72,12 +72,10 @@ export class CalendarMonth {
 
         if (not(inRange([1, 12], this.__data.month))) {
             // adjust month and year
-            let monthReference = 0;
             let numYears = getRoundedDown(this.__data.month / 12);
             if (numYears === 0) numYears = -1;
-            if (numYears < 0) monthReference = 12;
-            let remainder = this.__data.month % 12;
-            this.__data.month = monthReference + remainder;
+            const monthReference = (numYears < 0) ? 12 : 0;
+            this.__data.month = monthReference + (this.__data.month % 12);
             this.__data.year += numYears;
         }
         if (not(inRange([0, 6], this.__data.weekBeginsOn))) {
