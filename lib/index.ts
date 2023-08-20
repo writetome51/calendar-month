@@ -79,10 +79,10 @@ export class CalendarMonth {
             this.__data.year += numYears;
         }
         if (not(inRange([0, 6], this.__data.weekBeginsOn))) {
-            throw new Error(`'weekBeginsOn' must be integer from 0 to 6`)
+            throw new Error(`'weekBeginsOn' must be integer from 0 to 6`);
         }
 
-        this.__data.weeks = GetWeeks.go(this.__data)
+        this.__data.weeks = GetWeeks.go(this.__data);
     }
 
 }

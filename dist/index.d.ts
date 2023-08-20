@@ -1,29 +1,20 @@
-# CalendarMonth
-
-## A Typescript class for generating calendar month data, especially for display
-
-------
-```ts
-type CalendarMonthSettings = {
+export type CalendarMonthSettings = {
     /*****
      Defaults to most recent setting, or if never set, current year
      *****/
     year?: number;
-
     /*****
      1 - 12. Defaults to most recent setting, or if never set, current month.
      If not within 1 - 12, month and year will be adjusted. I.E., If set to 0, will be reset to
      12 and year will be reset to previous year.
      *****/
     month?: number;
-
     /*****
      0 - 6.  Defaults to most recent setting, or if never set, 0 (Sunday)
      *****/
     weekBeginsOn?: number;
 };
-
-type CalendarMonthData = Required<CalendarMonthSettings> & {
+export type CalendarMonthData = Required<CalendarMonthSettings> & {
     /*****
      * The numbers of each day in the set month, separated into the weeks of the month.
      * Includes for display the days of previous and next months.
@@ -39,25 +30,9 @@ type CalendarMonthData = Required<CalendarMonthSettings> & {
     weeks: number[][];
 };
 
-declare class CalendarMonth {
-
+export declare class CalendarMonth {
+    private __data;
     get data(): CalendarMonthData;
-
     constructor(settings?: CalendarMonthSettings);
-
     set(settings?: CalendarMonthSettings): void;
 }
-```
-
-
-## Installation
-
-```bash
-npm i @writetome51/calendar-month
-```
-
-## Loading
-
-```js
-import {CalendarMonth} from '@writetome51/calendar-month';
-```
