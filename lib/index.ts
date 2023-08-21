@@ -13,8 +13,8 @@ export type CalendarMonthSettings = {
 
     /*****
      1 - 12. Defaults to most recent setting, or if never set, current month.
-     If not within 1 - 12, month and year will be adjusted. I.E., if set to 0, will be reset to
-     12 and year will be reset to previous year.
+     If month is not within 1 - 12, month and year will be adjusted. I.E., if set to 0,
+     month will be reset to 12 and year will be reset to previous year.
      *****/
     month?: number;
 
