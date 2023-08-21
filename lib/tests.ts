@@ -1,3 +1,5 @@
+import {CalendarMonth} from "./index";
+
 const cm = new CalendarMonth();
 console.log('current month:')
 console.log(cm);

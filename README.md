@@ -2,7 +2,7 @@
 
 ## A Typescript class for generating calendar month data, especially for display
 
-------
+
 ```ts
 type CalendarMonthSettings = {
     /*****
