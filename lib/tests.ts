@@ -1,67 +1,101 @@
-import {CalendarMonth} from "./index";
-
+import { CalendarMonth } from "./index";
 const cm = new CalendarMonth();
-console.log('current month:')
+console.log('current month:');
 console.log(cm);
 console.log(cm.data.weeks);
 console.log('--------------');
-
-cm.set({weekBeginsOn: 6})
-console.log('current month:')
+cm.set({ weekBeginsOn: 6 });
+console.log('current month:');
 console.log(cm);
 console.log(cm.data.weeks);
 console.log('--------------');
-
-cm.set({month: cm.data.month - 1})
-console.log('previous month:')
+cm.set({ month: cm.data.month - 1 });
+console.log('previous month:');
 console.log(cm);
 console.log(cm.data.weeks);
 console.log('--------------');
-
 cm.set();
-console.log('previous month:')
+console.log('previous month:');
 console.log(cm);
 console.log(cm.data.weeks);
 console.log('--------------');
-
 //reset to current date:
-cm.set({...(new CalendarMonth()).data})
+cm.set(Object.assign({}, (new CalendarMonth()).data));
 console.log('current month');
 console.log(cm);
-
-cm.set({month: cm.data.month - 1})
-console.log('previous month:')
+cm.set({ month: cm.data.month - 1 });
+console.log('previous month:');
+console.log(cm);
+console.log(cm.data.weeks);
+console.log('--------------');
+cm.set({ month: cm.data.month - 1 });
+console.log('previous month:');
+console.log(cm);
+console.log(cm.data.weeks);
+console.log('--------------');
+cm.set({ month: cm.data.month - 1 });
+console.log('previous month:');
+console.log(cm);
+console.log(cm.data.weeks);
+console.log('--------------');
+cm.set({ month: cm.data.month - 1 });
+console.log('previous month:');
+console.log(cm);
+console.log(cm.data.weeks);
+console.log('--------------');
+cm.set({ month: cm.data.month - 1 });
+console.log('previous month:');
+console.log(cm);
+console.log(cm.data.weeks);
+console.log('--------------');
+cm.set({ month: cm.data.month - 1 });
+console.log('previous month:');
+console.log(cm);
+console.log(cm.data.weeks);
+console.log('--------------');
+cm.set({ month: cm.data.month - 1 });
+console.log('previous month:');
+console.log(cm);
+console.log(cm.data.weeks);
+console.log('--------------');
+cm.set({ month: cm.data.month - 1 });
+console.log('previous month:');
+console.log(cm);
+console.log(cm.data.weeks);
+console.log('--------------');
+cm.set({ month: cm.data.month - 1 });
+console.log('previous month:');
+console.log(cm);
+console.log(cm.data.weeks);
+console.log('--------------');
+cm.set({ month: cm.data.month - 1 });
+console.log('previous month:');
 console.log(cm);
 console.log(cm.data.weeks);
 console.log('--------------');
 
-cm.set({month: cm.data.month - 1})
-console.log('previous month:')
+
+cm.set({ month: cm.data.month - 12 });
+console.log('previous month:');
 console.log(cm);
 console.log(cm.data.weeks);
 console.log('--------------');
 
-cm.set({month: cm.data.month - 1})
-console.log('previous month:')
+
+cm.set({ month: cm.data.month + 4 });
+console.log('previous month:');
 console.log(cm);
 console.log(cm.data.weeks);
 console.log('--------------');
 
-cm.set({month: cm.data.month - 1})
-console.log('previous month:')
+cm.set({ year:cm.data.year + 2 });
+console.log('previous month:');
 console.log(cm);
 console.log(cm.data.weeks);
 console.log('--------------');
 
-cm.set({month: cm.data.month - 1})
-console.log('previous month:')
+cm.set({month:cm.data.month + 1 });
+console.log('previous month:');
 console.log(cm);
 console.log(cm.data.weeks);
 console.log('--------------');
-
-cm.set({month: cm.data.month - 1})
-console.log('previous month:')
-console.log(cm);
-console.log(cm.data.weeks);
-console.log('--------------');
-
