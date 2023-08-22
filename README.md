@@ -49,12 +49,91 @@ declare class CalendarMonth {
 }
 ```
 
+## Usage Examples
 
-## Installation
+```ts
+// Instantiate without parameters, letting it default to current month and year:
+let cm = new CalendarMonth();
 
-```bash
-npm i @writetome51/calendar-month
+// Instantiate with a specified month, letting it default to current year:
+cm = new CalendarMonth({month: 1});
+
+// Change to August 2023:
+cm.set({month: 8, year: 2023});
+console.log(cm.data);
+/*****
+ {
+   year: 2023,
+   month: 8,
+   weekBeginsOn: 0,
+   weeks: [
+     [30, 31, 1, 2, 3, 4, 5],
+     [6, 7, 8, 9, 10, 11, 12],
+     [13, 14, 15, 16, 17, 18, 19],
+     [20, 21, 22, 23, 24, 25, 26],
+     [27, 28, 29, 30, 31, 1, 2]
+   ]
+ }
+ *****/
+
+// Set the weeks to begin on Monday:
+cm.set({weekBeginsOn: 1});
+console.log(cm.data.weeks);
+/*****
+ [
+   [31, 1, 2, 3, 4, 5, 6],
+   [7, 8, 9, 10, 11, 12, 13],
+   [14, 15, 16, 17, 18, 19, 20],
+   [21, 22, 23, 24, 25, 26, 27],
+   [28, 29, 30, 31, 1, 2, 3]
+ ]
+ *****/
+
+// Go to the next month:
+cm.set({month: cm.data.month + 1});
+console.log(cm.data);
+/*****
+ {
+   year: 2023,
+   month: 9,
+   weekBeginsOn: 1,
+   weeks: [
+     [28, 29, 30, 31, 1, 2, 3],
+     [4, 5, 6, 7, 8, 9, 10],
+     [11, 12, 13, 14, 15, 16, 17],
+     [18, 19, 20, 21, 22, 23, 24],
+     [25, 26, 27, 28, 29, 30, 1]
+   ]
+ }
+ *****/
+
+// Jump forward 4 months:
+cm.set({month: cm.data.month + 4});
+console.log(cm.data);
+/*****
+ {
+   year: 2024,
+   month: 1,
+   weekBeginsOn: 1,
+   weeks: [
+     [1, 2, 3, 4, 5, 6, 7],
+     [8, 9, 10, 11, 12, 13, 14],
+     [15, 16, 17, 18, 19, 20, 21],
+     [22, 23, 24, 25, 26, 27, 28],
+     [29, 30, 31, 1, 2, 3, 4]
+   ]
+ }
+ *****/
+
+// Go back 4 months:
+cm.set({month: cm.data.month - 4});
+console.log(cm.data);
+/*****
+ {year: 2023, month: 9, ...and so on}
+*****/
 ```
+
+
 
 ## Loading
 
