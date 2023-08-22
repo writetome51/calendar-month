@@ -84,3 +84,30 @@ if (cm.data.month === todaysDate.month &&
 	console.log(`test 6B passed`);
 } else
 	console.log(`test 6B FAILED`);
+
+// test 7: calling .set() after instantiation should update expected values in .data:
+cm.set({weekBeginsOn: 0});
+if (cm.data.month === todaysDate.month &&
+		cm.data.year === todaysDate.year &&
+		cm.data.weekBeginsOn === 0) {
+	console.log(`test 7 passed`);
+} else
+	console.log(`test 7 FAILED`);
+
+// test 7: calling .set() after instantiation should update expected values in .data:
+cm.set({month: 1});
+if (cm.data.month === 1 &&
+		cm.data.year === todaysDate.year &&
+		cm.data.weekBeginsOn === 0) {
+	console.log(`test 7A passed`);
+} else
+	console.log(`test 7A FAILED`);
+
+// test 7: calling .set() after instantiation should update expected values in .data:
+cm.set({year: 1000});
+if (cm.data.month === 1 &&
+		cm.data.year === 1000 &&
+		cm.data.weekBeginsOn === 0) {
+	console.log(`test 7B passed`);
+} else
+	console.log(`test 7B FAILED`);
