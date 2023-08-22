@@ -1,12 +1,12 @@
-export type CalendarMonthSettings = {
+export declare type CalendarMonthSettings = {
     /*****
      Defaults to most recent setting, or if never set, current year
      *****/
     year?: number;
     /*****
      1 - 12. Defaults to most recent setting, or if never set, current month.
-     If not within 1 - 12, month and year will be adjusted. I.E., If set to 0, will be reset to
-     12 and year will be reset to previous year.
+     If month is not within 1 - 12, month and year will be adjusted. I.E., if set to 0,
+     month will be reset to 12 and year will be reset to previous year.
      *****/
     month?: number;
     /*****
@@ -14,7 +14,7 @@ export type CalendarMonthSettings = {
      *****/
     weekBeginsOn?: number;
 };
-export type CalendarMonthData = Required<CalendarMonthSettings> & {
+export declare type CalendarMonthData = Required<CalendarMonthSettings> & {
     /*****
      * The numbers of each day in the set month, separated into the weeks of the month.
      * Includes for display the days of previous and next months.
@@ -29,7 +29,6 @@ export type CalendarMonthData = Required<CalendarMonthSettings> & {
      *****/
     weeks: number[][];
 };
-
 export declare class CalendarMonth {
     private __data;
     get data(): CalendarMonthData;
