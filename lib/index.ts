@@ -83,6 +83,7 @@ export class CalendarMonth {
         }
 
         this.__data.weeks = GetWeeks.go(this.__data);
+        Object.freeze(this.__data);
     }
 
 }
