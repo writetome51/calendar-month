@@ -50,7 +50,7 @@ export class CalendarMonth {
     };
 
     get data(): CalendarMonthData {
-        return this.__data;
+        return Object.freeze({...this.__data});
     }
 
     constructor(settings?: CalendarMonthSettings) {
@@ -83,7 +83,6 @@ export class CalendarMonth {
         }
 
         this.__data.weeks = GetWeeks.go(this.__data);
-        Object.freeze(this.__data);
     }
 
 }

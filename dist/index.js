@@ -14,7 +14,7 @@ export class CalendarMonth {
         this.set(settings);
     }
     get data() {
-        return this.__data;
+        return Object.freeze({...this.__data});
     }
     set(settings = {}) {
         const { year, month, weekBeginsOn } = settings;
