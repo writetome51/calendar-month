@@ -1,5 +1,5 @@
-import { CalendarMonth } from "./index";
-import { getTodaysDate } from "./get-todays-date";
+import { CalendarMonth } from "./index.js";
+import { getTodaysDate } from "./get-todays-date.js";
 import { isMatch } from "@writetome51/is-match";
 const todaysDate = getTodaysDate();
 // test 1: Instantiation without parameters should set instance to current month and year,
