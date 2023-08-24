@@ -302,9 +302,9 @@ if (isMatch(
         [18, 19, 20, 21, 22, 23, 24],
         [25, 26, 27, 28, 29, 30, 31]
     ]
-)) console.log(`test 9C passed`);
+)) console.log(`test 9D passed`);
 else
-    console.log(`test 9C FAILED`);
+    console.log(`test 9D FAILED`);
 
 cm.set({weekBeginsOn: 6});
 if (isMatch(
@@ -316,6 +316,93 @@ if (isMatch(
         [19, 20, 21, 22, 23, 24, 25],
         [26, 27, 28, 29, 30, 31, 1]
     ]
-)) console.log(`test 9D passed`);
+)) console.log(`test 9E passed`);
 else
-    console.log(`test 9D FAILED`);
+    console.log(`test 9E FAILED`);
+
+
+cm.set({month: 9});
+if (isMatch(
+    cm.data.weeks,
+    [
+        [26, 27, 28, 29, 30, 31, 1],
+        [2, 3, 4, 5, 6, 7, 8],
+        [9, 10, 11, 12, 13, 14, 15],
+        [16, 17, 18, 19, 20, 21, 22],
+        [23, 24, 25, 26, 27, 28, 29],
+        [30, 1, 2, 3, 4, 5, 6]
+    ]
+)) console.log(`test 9F passed`);
+else
+    console.log(`test 9F FAILED`);
+
+cm.set({month: 10});
+if (isMatch(
+    cm.data.weeks,
+    [
+        [30, 1, 2, 3, 4, 5, 6],
+        [7, 8, 9, 10, 11, 12, 13],
+        [14, 15, 16, 17, 18, 19, 20],
+        [21, 22, 23, 24, 25, 26, 27],
+        [28, 29, 30, 31, 1, 2, 3]
+    ]
+)) console.log(`test 9G passed`);
+else
+    console.log(`test 9G FAILED`);
+
+
+cm.set({weekBeginsOn: 0});
+if (isMatch(
+    cm.data.weeks,
+    [
+        [1, 2, 3, 4, 5, 6, 7],
+        [8, 9, 10, 11, 12, 13, 14],
+        [15, 16, 17, 18, 19, 20, 21],
+        [22, 23, 24, 25, 26, 27, 28],
+        [29, 30, 31, 1, 2, 3, 4]
+    ]
+)) console.log(`test 9G passed`);
+else
+    console.log(`test 9G FAILED`);
+
+cm.set({month: 2});
+if (isMatch(
+    cm.data.weeks,
+    [
+        [29, 30, 31, 1, 2, 3, 4],
+        [5, 6, 7, 8, 9, 10, 11],
+        [12, 13, 14, 15, 16, 17, 18],
+        [19, 20, 21, 22, 23, 24, 25],
+        [26, 27, 28, 1, 2, 3, 4]
+    ]
+)) console.log(`test 9G passed`);
+else
+    console.log(`test 9G FAILED`);
+
+cm.set({weekBeginsOn: 1});
+if (isMatch(
+    cm.data.weeks,
+    [
+        [30, 31, 1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 10, 11, 12],
+        [13, 14, 15, 16, 17, 18, 19],
+        [20, 21, 22, 23, 24, 25, 26],
+        [27, 28, 1, 2, 3, 4, 5]
+    ]
+)) console.log(`test 9G passed`);
+else
+    console.log(`test 9G FAILED`);
+
+cm.set({year: 2024});
+if (isMatch(
+    cm.data.weeks,
+    [
+        [29, 30, 31, 1, 2, 3, 4],
+        [5, 6, 7, 8, 9, 10, 11],
+        [12, 13, 14, 15, 16, 17, 18],
+        [19, 20, 21, 22, 23, 24, 25],
+        [26, 27, 28, 29, 1, 2, 3]
+    ]
+)) console.log(`test 9G passed`);
+else
+    console.log(`test 9G FAILED`);

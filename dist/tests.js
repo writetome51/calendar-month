@@ -1,6 +1,6 @@
-import { CalendarMonth } from "./index.js";
-import { getTodaysDate } from "./get-todays-date.js";
-import {isMatch} from "@writetome51/is-match";
+import { CalendarMonth } from "./index";
+import { getTodaysDate } from "./get-todays-date";
+import { isMatch } from "@writetome51/is-match";
 const todaysDate = getTodaysDate();
 // test 1: Instantiation without parameters should set instance to current month and year,
 // and weekBeginsOn should be 0:
@@ -120,190 +120,254 @@ if (cm.data.month === 2 &&
 }
 else
     console.log(`test 7C FAILED`);
-
-
 // Test 8: should adjust month and year if passing month that isn't in range 1 - 12:
-cm.set({month: cm.data.month + 12});
+cm.set({ month: cm.data.month + 12 });
 if (cm.data.month === 2 &&
-      cm.data.year === 2001 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 2001 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8A passed`);
-} else
+}
+else
     console.log(`test 8A FAILED`);
-
-cm.set({month: cm.data.month + 13});
+cm.set({ month: cm.data.month + 13 });
 if (cm.data.month === 3 &&
-      cm.data.year === 2002 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 2002 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8B passed`);
-} else
+}
+else
     console.log(`test 8B FAILED`);
-
-cm.set({month: cm.data.month + 24});
+cm.set({ month: cm.data.month + 24 });
 if (cm.data.month === 3 &&
-      cm.data.year === 2004 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 2004 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8C passed`);
-} else
+}
+else
     console.log(`test 8C FAILED`);
-
-cm.set({month: cm.data.month + 25});
+cm.set({ month: cm.data.month + 25 });
 if (cm.data.month === 4 &&
-      cm.data.year === 2006 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 2006 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8D passed`);
-} else
+}
+else
     console.log(`test 8D FAILED`);
-
-cm.set({month: 0, year: 2007});
+cm.set({ month: 0, year: 2007 });
 if (cm.data.month === 12 &&
-      cm.data.year === 2006 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 2006 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8E passed`);
-} else
+}
+else
     console.log(`test 8E FAILED`);
-
-cm.set({month: -1, year: 2007});
+cm.set({ month: -1, year: 2007 });
 if (cm.data.month === 11 &&
-      cm.data.year === 2006 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 2006 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8F passed`);
-} else
+}
+else
     console.log(`test 8F FAILED`);
-
-cm.set({month: 0});
+cm.set({ month: 0 });
 if (cm.data.month === 12 &&
-      cm.data.year === 2005 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 2005 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8G passed`);
-} else
+}
+else
     console.log(`test 8G FAILED`);
-
-cm.set({month: -1});
+cm.set({ month: -1 });
 if (cm.data.month === 11 &&
-      cm.data.year === 2004 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 2004 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8H passed`);
-} else
+}
+else
     console.log(`test 8H FAILED`);
-
-cm.set({month: cm.data.month - 12});
+cm.set({ month: cm.data.month - 12 });
 if (cm.data.month === 11 &&
-      cm.data.year === 2003 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 2003 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8I passed`);
-} else
+}
+else
     console.log(`test 8I FAILED`);
-
-cm.set({month: cm.data.month - 13});
+cm.set({ month: cm.data.month - 13 });
 if (cm.data.month === 10 &&
-      cm.data.year === 2002 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 2002 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8J passed`);
-} else
+}
+else
     console.log(`test 8J FAILED`);
-
-cm.set({month: cm.data.month - 24});
+cm.set({ month: cm.data.month - 24 });
 if (cm.data.month === 10 &&
-      cm.data.year === 2000 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 2000 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8K passed`);
-} else
+}
+else
     console.log(`test 8K FAILED`);
-
-cm.set({month: cm.data.month - 25});
+cm.set({ month: cm.data.month - 25 });
 if (cm.data.month === 9 &&
-      cm.data.year === 1998 &&
-      cm.data.weekBeginsOn === 2) {
+    cm.data.year === 1998 &&
+    cm.data.weekBeginsOn === 2) {
     console.log(`test 8L passed`);
-} else
+}
+else
     console.log(`test 8L FAILED`);
-
 // Test 9: Make sure weeks contains correct numbers:
-cm.set({month: 8, year: 2023, weekBeginsOn: 0});
-if (isMatch(
-      cm.data.weeks,
-      [
-          [
-              30, 31, 1, 2,
-              3,  4, 5
-          ],
-          [
-              6,  7,  8, 9,
-              10, 11, 12
-          ],
-          [
-              13, 14, 15, 16,
-              17, 18, 19
-          ],
-          [
-              20, 21, 22, 23,
-              24, 25, 26
-          ],
-          [
-              27, 28, 29, 30,
-              31,  1,  2
-          ]
-      ]
-)) console.log(`test 9A passed`);
+cm.set({ month: 8, year: 2023, weekBeginsOn: 0 });
+if (isMatch(cm.data.weeks, [
+    [
+        30, 31, 1, 2,
+        3, 4, 5
+    ],
+    [
+        6, 7, 8, 9,
+        10, 11, 12
+    ],
+    [
+        13, 14, 15, 16,
+        17, 18, 19
+    ],
+    [
+        20, 21, 22, 23,
+        24, 25, 26
+    ],
+    [
+        27, 28, 29, 30,
+        31, 1, 2
+    ]
+]))
+    console.log(`test 9A passed`);
 else
     console.log(`test 9A FAILED`);
-
-
-cm.set({weekBeginsOn: 1});
-if (isMatch(
-      cm.data.weeks,
-      [
-          [
-              31, 1, 2,
-              3, 4, 5, 6
-          ],
-          [
-              7,  8, 9,
-              10, 11, 12, 13
-          ],
-          [
-              14, 15, 16,
-              17, 18, 19, 20
-          ],
-          [
-              21, 22, 23,
-              24, 25, 26, 27
-          ],
-          [
-              28, 29, 30,
-              31,  1,  2, 3
-          ]
-      ]
-)) console.log(`test 9B passed`);
+cm.set({ weekBeginsOn: 1 });
+if (isMatch(cm.data.weeks, [
+    [
+        31, 1, 2,
+        3, 4, 5, 6
+    ],
+    [
+        7, 8, 9,
+        10, 11, 12, 13
+    ],
+    [
+        14, 15, 16,
+        17, 18, 19, 20
+    ],
+    [
+        21, 22, 23,
+        24, 25, 26, 27
+    ],
+    [
+        28, 29, 30,
+        31, 1, 2, 3
+    ]
+]))
+    console.log(`test 9B passed`);
 else
     console.log(`test 9B FAILED`);
-
-cm.set({weekBeginsOn: 3});
-if (isMatch(
-      cm.data.weeks,
-      [
-          [26, 27, 28, 29, 30, 31, 1],
-          [2, 3, 4, 5, 6, 7, 8],
-          [9, 10, 11, 12, 13,14, 15],
-          [16, 17, 18, 19, 20,21,22],
-          [23, 24, 25, 26, 27,28,29],
-          [30, 31, 1, 2, 3, 4, 5]
-      ]
-)) console.log(`test 9C passed`);
+cm.set({ weekBeginsOn: 3 });
+if (isMatch(cm.data.weeks, [
+    [26, 27, 28, 29, 30, 31, 1],
+    [2, 3, 4, 5, 6, 7, 8],
+    [9, 10, 11, 12, 13, 14, 15],
+    [16, 17, 18, 19, 20, 21, 22],
+    [23, 24, 25, 26, 27, 28, 29],
+    [30, 31, 1, 2, 3, 4, 5]
+]))
+    console.log(`test 9C passed`);
 else
     console.log(`test 9C FAILED`);
-
-cm.set({weekBeginsOn: 6});
-if (isMatch(
-      cm.data.weeks,
-      [
-         [29, 30, 31, 1, 2, 3, 4],
-         [5, 6, 7, 8, 9, 10, 11],
-         [12, 13, 14, 15, 16, 17, 18],
-         [19, 20, 21, 22, 23, 24, 25],
-         [26, 27, 28, 29, 30, 31, 1]
-      ]
-)) console.log(`test 9D passed`);
+cm.set({ weekBeginsOn: 5 });
+if (isMatch(cm.data.weeks, [
+    [28, 29, 30, 31, 1, 2, 3],
+    [4, 5, 6, 7, 8, 9, 10],
+    [11, 12, 13, 14, 15, 16, 17],
+    [18, 19, 20, 21, 22, 23, 24],
+    [25, 26, 27, 28, 29, 30, 31]
+]))
+    console.log(`test 9D passed`);
 else
-   console.log(`test 9D FAILED`);
+    console.log(`test 9D FAILED`);
+cm.set({ weekBeginsOn: 6 });
+if (isMatch(cm.data.weeks, [
+    [29, 30, 31, 1, 2, 3, 4],
+    [5, 6, 7, 8, 9, 10, 11],
+    [12, 13, 14, 15, 16, 17, 18],
+    [19, 20, 21, 22, 23, 24, 25],
+    [26, 27, 28, 29, 30, 31, 1]
+]))
+    console.log(`test 9E passed`);
+else
+    console.log(`test 9E FAILED`);
+cm.set({ month: 9 });
+if (isMatch(cm.data.weeks, [
+    [26, 27, 28, 29, 30, 31, 1],
+    [2, 3, 4, 5, 6, 7, 8],
+    [9, 10, 11, 12, 13, 14, 15],
+    [16, 17, 18, 19, 20, 21, 22],
+    [23, 24, 25, 26, 27, 28, 29],
+    [30, 1, 2, 3, 4, 5, 6]
+]))
+    console.log(`test 9F passed`);
+else
+    console.log(`test 9F FAILED`);
+cm.set({ month: 10 });
+if (isMatch(cm.data.weeks, [
+    [30, 1, 2, 3, 4, 5, 6],
+    [7, 8, 9, 10, 11, 12, 13],
+    [14, 15, 16, 17, 18, 19, 20],
+    [21, 22, 23, 24, 25, 26, 27],
+    [28, 29, 30, 31, 1, 2, 3]
+]))
+    console.log(`test 9G passed`);
+else
+    console.log(`test 9G FAILED`);
+cm.set({ weekBeginsOn: 0 });
+if (isMatch(cm.data.weeks, [
+    [1, 2, 3, 4, 5, 6, 7],
+    [8, 9, 10, 11, 12, 13, 14],
+    [15, 16, 17, 18, 19, 20, 21],
+    [22, 23, 24, 25, 26, 27, 28],
+    [29, 30, 31, 1, 2, 3, 4]
+]))
+    console.log(`test 9G passed`);
+else
+    console.log(`test 9G FAILED`);
+cm.set({ month: 2 });
+if (isMatch(cm.data.weeks, [
+    [29, 30, 31, 1, 2, 3, 4],
+    [5, 6, 7, 8, 9, 10, 11],
+    [12, 13, 14, 15, 16, 17, 18],
+    [19, 20, 21, 22, 23, 24, 25],
+    [26, 27, 28, 1, 2, 3, 4]
+]))
+    console.log(`test 9G passed`);
+else
+    console.log(`test 9G FAILED`);
+cm.set({ weekBeginsOn: 1 });
+if (isMatch(cm.data.weeks, [
+    [30, 31, 1, 2, 3, 4, 5],
+    [6, 7, 8, 9, 10, 11, 12],
+    [13, 14, 15, 16, 17, 18, 19],
+    [20, 21, 22, 23, 24, 25, 26],
+    [27, 28, 1, 2, 3, 4, 5]
+]))
+    console.log(`test 9G passed`);
+else
+    console.log(`test 9G FAILED`);
+cm.set({ year: 2024 });
+if (isMatch(cm.data.weeks, [
+    [29, 30, 31, 1, 2, 3, 4],
+    [5, 6, 7, 8, 9, 10, 11],
+    [12, 13, 14, 15, 16, 17, 18],
+    [19, 20, 21, 22, 23, 24, 25],
+    [26, 27, 28, 29, 1, 2, 3]
+]))
+    console.log(`test 9G passed`);
+else
+    console.log(`test 9G FAILED`);
