@@ -1,5 +1,6 @@
 import { CalendarMonth } from "./index.js";
 import { getTodaysDate } from "./get-todays-date.js";
+import {isMatch} from "@writetome51/is-match";
 const todaysDate = getTodaysDate();
 // test 1: Instantiation without parameters should set instance to current month and year,
 // and weekBeginsOn should be 0:
@@ -217,3 +218,92 @@ if (cm.data.month === 9 &&
     console.log(`test 8L passed`);
 } else
     console.log(`test 8L FAILED`);
+
+// Test 9: Make sure weeks contains correct numbers:
+cm.set({month: 8, year: 2023, weekBeginsOn: 0});
+if (isMatch(
+      cm.data.weeks,
+      [
+          [
+              30, 31, 1, 2,
+              3,  4, 5
+          ],
+          [
+              6,  7,  8, 9,
+              10, 11, 12
+          ],
+          [
+              13, 14, 15, 16,
+              17, 18, 19
+          ],
+          [
+              20, 21, 22, 23,
+              24, 25, 26
+          ],
+          [
+              27, 28, 29, 30,
+              31,  1,  2
+          ]
+      ]
+)) console.log(`test 9A passed`);
+else
+    console.log(`test 9A FAILED`);
+
+
+cm.set({weekBeginsOn: 1});
+if (isMatch(
+      cm.data.weeks,
+      [
+          [
+              31, 1, 2,
+              3, 4, 5, 6
+          ],
+          [
+              7,  8, 9,
+              10, 11, 12, 13
+          ],
+          [
+              14, 15, 16,
+              17, 18, 19, 20
+          ],
+          [
+              21, 22, 23,
+              24, 25, 26, 27
+          ],
+          [
+              28, 29, 30,
+              31,  1,  2, 3
+          ]
+      ]
+)) console.log(`test 9B passed`);
+else
+    console.log(`test 9B FAILED`);
+
+cm.set({weekBeginsOn: 3});
+if (isMatch(
+      cm.data.weeks,
+      [
+          [26, 27, 28, 29, 30, 31, 1],
+          [2, 3, 4, 5, 6, 7, 8],
+          [9, 10, 11, 12, 13,14, 15],
+          [16, 17, 18, 19, 20,21,22],
+          [23, 24, 25, 26, 27,28,29],
+          [30, 31, 1, 2, 3, 4, 5]
+      ]
+)) console.log(`test 9C passed`);
+else
+    console.log(`test 9C FAILED`);
+
+cm.set({weekBeginsOn: 6});
+if (isMatch(
+      cm.data.weeks,
+      [
+         [29, 30, 31, 1, 2, 3, 4],
+         [5, 6, 7, 8, 9, 10, 11],
+         [12, 13, 14, 15, 16, 17, 18],
+         [19, 20, 21, 22, 23, 24, 25],
+         [26, 27, 28, 29, 30, 31, 1]
+      ]
+)) console.log(`test 9D passed`);
+else
+   console.log(`test 9D FAILED`);
