@@ -117,3 +117,102 @@ if (cm.data.month === 2 &&
     console.log(`test 7C passed`);
 } else
     console.log(`test 7C FAILED`);
+
+
+// Test 8: should adjust month and year if passing month that isn't in range 1 - 12:
+cm.set({month: cm.data.month + 12});
+if (cm.data.month === 2 &&
+    cm.data.year === 2001 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8A passed`);
+} else
+    console.log(`test 8A FAILED`);
+
+cm.set({month: cm.data.month + 13});
+if (cm.data.month === 3 &&
+    cm.data.year === 2002 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8B passed`);
+} else
+    console.log(`test 8B FAILED`);
+
+cm.set({month: cm.data.month + 24});
+if (cm.data.month === 3 &&
+    cm.data.year === 2004 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8C passed`);
+} else
+    console.log(`test 8C FAILED`);
+
+cm.set({month: cm.data.month + 25});
+if (cm.data.month === 4 &&
+    cm.data.year === 2006 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8D passed`);
+} else
+    console.log(`test 8D FAILED`);
+
+cm.set({month: 0, year: 2007});
+if (cm.data.month === 12 &&
+    cm.data.year === 2006 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8E passed`);
+} else
+    console.log(`test 8E FAILED`);
+
+cm.set({month: -1, year: 2007});
+if (cm.data.month === 11 &&
+    cm.data.year === 2006 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8F passed`);
+} else
+    console.log(`test 8F FAILED`);
+
+cm.set({month: 0});
+if (cm.data.month === 12 &&
+    cm.data.year === 2005 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8G passed`);
+} else
+    console.log(`test 8G FAILED`);
+
+cm.set({month: -1});
+if (cm.data.month === 11 &&
+    cm.data.year === 2004 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8H passed`);
+} else
+    console.log(`test 8H FAILED`);
+
+cm.set({month: cm.data.month - 12});
+if (cm.data.month === 11 &&
+    cm.data.year === 2003 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8I passed`);
+} else
+    console.log(`test 8I FAILED`);
+
+cm.set({month: cm.data.month - 13});
+if (cm.data.month === 10 &&
+    cm.data.year === 2002 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8J passed`);
+} else
+    console.log(`test 8J FAILED`);
+
+cm.set({month: cm.data.month - 24});
+if (cm.data.month === 10 &&
+    cm.data.year === 2000 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8K passed`);
+} else
+    console.log(`test 8K FAILED`);
+
+cm.set({month: cm.data.month - 25});
+if (cm.data.month === 9 &&
+    cm.data.year === 1998 &&
+    cm.data.weekBeginsOn === 2) {
+    console.log(`test 8L passed`);
+} else
+    console.log(`test 8L FAILED`);
+
