@@ -119,3 +119,7 @@ if (cm.data.month === 2 &&
 }
 else
     console.log(`test 7C FAILED`);
+
+
+cm.set({year:2024, month:1, weekBeginsOn:0})
+console.log(cm.data.weeks)

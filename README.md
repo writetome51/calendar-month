@@ -2,6 +2,8 @@
 
 ## A Typescript class for generating calendar month data, especially for display
 
+## API
+<details>
 
 ```ts
 type CalendarMonthSettings = {
@@ -29,11 +31,11 @@ type CalendarMonthData = Required<CalendarMonthSettings> & {
      * Includes for display the days of previous and next months.
      * I.E., This is a February whose first day is a Wednesday (and the week begins on Sunday):
      [
-     [29,30,31,1,2,3,4],
-     [5,6,7,8,9,10,11],
-     [12,13,14,15,16,17,18],
-     [19,20,21,22,23,24,25],
-     [26,27,28,1,2,3,4]
+       [29,30,31,1,2,3,4],
+       [5,6,7,8,9,10,11],
+       [12,13,14,15,16,17,18],
+       [19,20,21,22,23,24,25],
+       [26,27,28,1,2,3,4]
      ]
      *****/
     weeks: number[][];
@@ -48,8 +50,11 @@ declare class CalendarMonth {
     set(settings?: CalendarMonthSettings): void;
 }
 ```
+</details>
+
 
 ## Usage Examples
+<details>
 
 ```ts
 // Instantiate without parameters, letting it default to current month and year:
@@ -125,13 +130,20 @@ console.log(cm.data);
  }
  *****/
 
-// Go back 4 months:
-cm.set({month: cm.data.month - 4});
-console.log(cm.data);
+// Set the weeks to begin on Sunday:
+cm.set({weekBeginsOn: 0});
+console.log(cm.data.weeks);
 /*****
- {year: 2023, month: 9, ...and so on}
-*****/
+ [
+   [31, 1, 2, 3, 4, 5, 6],
+   [7, 8, 9, 10, 11, 12, 13],
+   [14, 15, 16, 17, 18, 19, 20],
+   [21, 22, 23, 24, 25, 26, 27],
+   [28, 29, 30, 31, 1, 2, 3]
+ ]
+ *****/
 ```
+</details>
 
 
 
