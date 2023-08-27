@@ -6,7 +6,7 @@ A Typescript class for generating calendar month data, especially for display
 <details>
 
 ```ts
-type CalendarMonthSettings = {
+export type CalendarMonthSettings = {
     /*****
      Defaults to most recent setting, or if never set, current year
      *****/
@@ -25,7 +25,7 @@ type CalendarMonthSettings = {
     weekBeginsOn?: number;
 };
 
-type CalendarMonthData = Required<CalendarMonthSettings> & {
+export type CalendarMonthData = Required<CalendarMonthSettings> & {
     /*****
      * The numbers of each day in the set month, separated into the weeks of the month.
      * Includes for display the days of previous and next months.
@@ -41,7 +41,7 @@ type CalendarMonthData = Required<CalendarMonthSettings> & {
     weeks: number[][];
 };
 
-declare class CalendarMonth {
+export declare class CalendarMonth {
 
     get data(): CalendarMonthData;
 
