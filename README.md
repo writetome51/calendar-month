@@ -1,6 +1,6 @@
 # CalendarMonth
 
-A Typescript class for generating calendar month data, especially for display
+A Typescript class for generating data representing a calendar month
 
 ## API
 <details>
@@ -20,7 +20,7 @@ export type CalendarMonthSettings = {
     month?: number;
 
     /*****
-     0 - 6.  Defaults to most recent setting, or if never set, 0 (Sunday)
+     1 - 7.  Defaults to most recent setting, or if never set, 1 (Sunday)
      *****/
     weekBeginsOn?: number;
 };
@@ -28,8 +28,8 @@ export type CalendarMonthSettings = {
 export type CalendarMonthData = Required<CalendarMonthSettings> & {
     /*****
      * The numbers of each day in the set month, separated into the weeks of the month.
-     * Includes for display the days of previous and next months.
-     * I.E., This is a February whose first day is a Wednesday (and the week begins on Sunday):
+     * Includes days of previous and next months. I.E., This is a February whose first 
+     * day is a Wednesday (and the week begins on Sunday):
      [
        [29,30,31,1,2,3,4],
        [5,6,7,8,9,10,11],

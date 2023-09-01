@@ -19,7 +19,7 @@ export class GetWeeks {
             numDaysInMonth, numWeeks: getRoundedUp((numDaysInMonth + weekdayIndexOfFirstDay) / 7) });
     }
     static __getWeekdayIndexOfFirstDay({ month, year, weekBeginsOn }) {
-        let index = (new Date(year, month - 1, 1)).getDay() - weekBeginsOn;
+        let index = (new Date(year, month - 1, 1)).getDay() - (weekBeginsOn - 1);
         if (index < 0)
             index += 7;
         return index;

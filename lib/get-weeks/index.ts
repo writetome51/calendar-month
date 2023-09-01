@@ -40,7 +40,7 @@ export class GetWeeks {
          year,
          month - 1,
          1
-      )).getDay() - weekBeginsOn;
+      )).getDay() - (weekBeginsOn - 1);
       if (index < 0) index += 7;
 
       return index;

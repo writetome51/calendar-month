@@ -19,7 +19,7 @@ export type CalendarMonthSettings = {
     month?: number;
 
     /*****
-     0 - 6.  Defaults to most recent setting, or if never set, 0 (Sunday)
+     1 - 7.  Defaults to most recent setting, or if never set, 1 (Sunday)
      *****/
     weekBeginsOn?: number;
 }
@@ -27,8 +27,8 @@ export type CalendarMonthSettings = {
 export type CalendarMonthData = Required<CalendarMonthSettings> & {
     /*****
      * The numbers of each day in the set month, separated into the weeks of the month.
-     * Includes for display the days of previous and next months.
-     * I.E., This is a February whose first day is a Wednesday (and the week begins on Sunday):
+     * Includes days of previous and next months. I.E., This is a February whose first
+     * day is a Wednesday (and the week begins on Sunday):
      [
        [29,30,31,1,2,3,4],
        [5,6,7,8,9,10,11],
@@ -66,9 +66,14 @@ export class CalendarMonth {
         this.__data.month = Number.isInteger(month) ?
             month :
             this.__data.month || today.month;
+
         this.__data.weekBeginsOn = Number.isInteger(weekBeginsOn) ?
             weekBeginsOn :
-            this.__data.weekBeginsOn || 0;
+            this.__data.weekBeginsOn || 1;
+
+        if (not(inRange([1, 7], this.__data.weekBeginsOn))) {
+            throw new Error(`'weekBeginsOn' must be integer from 1 to 7`);
+        }
 
         if (not(inRange([1, 12], this.__data.month))) {
             // adjust month and year
@@ -77,9 +82,6 @@ export class CalendarMonth {
             const monthReference = (numYears < 0) ? 12 : 0;
             this.__data.month = monthReference + (this.__data.month % 12);
             this.__data.year += numYears;
-        }
-        if (not(inRange([0, 6], this.__data.weekBeginsOn))) {
-            throw new Error(`'weekBeginsOn' must be integer from 0 to 6`);
         }
 
         this.__data.weeks = GetWeeks.go(this.__data);
