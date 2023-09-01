@@ -70,7 +70,7 @@ console.log(cm.data);
  {
    year: 2023,
    month: 8,
-   weekBeginsOn: 0,
+   weekBeginsOn: 1,
    weeks: [
      [30, 31, 1, 2, 3, 4, 5],
      [6, 7, 8, 9, 10, 11, 12],
@@ -82,7 +82,7 @@ console.log(cm.data);
  *****/
 
 // Set the weeks to begin on Monday:
-cm.set({weekBeginsOn: 1});
+cm.set({weekBeginsOn: 2});
 console.log(cm.data.weeks);
 /*****
  [
@@ -101,7 +101,7 @@ console.log(cm.data);
  {
    year: 2023,
    month: 9,
-   weekBeginsOn: 1,
+   weekBeginsOn: 2,
    weeks: [
      [28, 29, 30, 31, 1, 2, 3],
      [4, 5, 6, 7, 8, 9, 10],
@@ -119,7 +119,7 @@ console.log(cm.data);
  {
    year: 2024,
    month: 1,
-   weekBeginsOn: 1,
+   weekBeginsOn: 2,
    weeks: [
      [1, 2, 3, 4, 5, 6, 7],
      [8, 9, 10, 11, 12, 13, 14],
@@ -131,7 +131,7 @@ console.log(cm.data);
  *****/
 
 // Set the weeks to begin on Sunday:
-cm.set({weekBeginsOn: 0});
+cm.set({weekBeginsOn: 1});
 console.log(cm.data.weeks);
 /*****
  [
